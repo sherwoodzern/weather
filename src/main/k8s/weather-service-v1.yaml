@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    name: weather-service-v1
+    labels:
+        app: weather-service
+        version: v1
+spec:
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                app: weather-service
+                version: v1
+        spec:
+            containers:
+                - image: skzern/weather:1.0.0
+                  imagePullPolicy: Always
+                  name: svc
+                  ports:
+                      - containerPort: 8080 

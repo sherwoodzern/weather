@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: com.oracle.examples.weather.MainTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.439 sec <<< FAILURE! - in com.oracle.examples.weather.MainTest
+com.oracle.examples.weather.MainTest  Time elapsed: 0.438 sec  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	MetricsSupport cannot be resolved to a type
+	MetricsSupport cannot be resolved
+	MetricRegistry cannot be resolved to a type
+	RegistryFactory cannot be resolved
+	MetricRegistry cannot be resolved to a variable
+	req cannot be resolved to a variable
+	res cannot be resolved to a variable
+
+	at com.oracle.examples.weather.MainTest.startTheServer(MainTest.java:40)
+

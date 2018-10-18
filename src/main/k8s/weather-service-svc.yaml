@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+    name: weather-service
+    labels:
+        app: weather-service
+spec:
+    selector:
+        app: weather-service
+    ports:
+        - port: 8080 
+          targetPort: 8080
+          name: http

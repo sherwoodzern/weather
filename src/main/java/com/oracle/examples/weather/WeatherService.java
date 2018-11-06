@@ -22,6 +22,9 @@ import javax.json.JsonReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.util.Iterator;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import io.helidon.common.http.MediaType;
 import io.helidon.config.Config;
@@ -48,6 +51,8 @@ public class WeatherService implements Service {
      */
     private static String hostURL = CONFIG.get("hostURL").asString("https://api.openweathermap.org/data/2.5/weather");
     private static String apiKey  = CONFIG.get("apiKey").asString("apiKey");
+    private static String version = CONFIG.get("version").asString("v0");
+    private static DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
     /**
      * A service registers itself by updating the routing rules.
@@ -65,6 +70,7 @@ public class WeatherService implements Service {
 
     private void getByZip(ServerRequest request, ServerResponse response) {
         System.out.println("Invoking getByZip");
+        logMessage(request);
         String zip = request.path().param("zip");
         HashMap<String,String> params = new HashMap<String,String>();
         params.put("zip",zip);
@@ -125,6 +131,17 @@ public class WeatherService implements Service {
         conn.setRequestProperty("Accept", "application/json");
         System.out.println("Connection is created");
         return conn;
+    }
+
+    private void logMessage(ServerRequest request) {
+        StringBuilder builder = new StringBuilder();
+        Calendar cal = Calendar.getInstance();
+        builder.append("Weather - version:");
+        builder.append(version);
+        builder.append(" - Date: ");
+        builder.append(DATE_FORMAT.format(cal.getTime()));
+        System.out.println(builder.toString());
+
     }
     
 }

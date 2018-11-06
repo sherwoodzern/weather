@@ -17,4 +17,7 @@ spec:
         port:
           number: 8080 
         host: weather-service
-      weight: 100 
+      weight: 100
+    mirror:
+      host: weather-service
+      subset: v2   

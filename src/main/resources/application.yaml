@@ -16,7 +16,7 @@
 
 app:
   hostURL: "https://api.openweathermap.org/data/2.5/weather"
-  apiKey: "cdb1ed01e720777a25d7caf4719876ef"
+  apiKey: "Add your api key here"
   version: "v1"
 
 server:
